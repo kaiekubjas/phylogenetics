@@ -125,13 +125,8 @@ R=QQ[p_(0,0,0)..p_(1,1,1)];
 I=ideal(p_(0,1,0)*p_(1,0,0)-p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)+p_(0,0,1)*p_(1,1,1),p_(0,0,1)*p_(1,0,0)-p_(0,0,0
        )*p_(1,0,1)-p_(0,1,1)*p_(1,1,0)+p_(0,1,0)*p_(1,1,1),p_(0,0,1)*p_(0,1,0)-p_(0,0,0)*p_(0,1,1)-p_(1,0,1)*p_(1,1,0)+p
        _(1,0,0)*p_(1,1,1));
-   
-inequalities = {p_(0,1,0)*p_(1,0,0)+p_(0,1,1)*p_(1,0,0)+p_(0,1,0)*p_(1,0,1)+p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)-p_(0,0,1)*p_(1,1,0)-p_(0,0,0)*p_(1,1,1)-p_(0,0,1)*p_(1,1,1),
-    p_(0,0,1)*p_(0,1,0)-p_(0,0,0)*p_(0,1,1)-p_(0,0,0)*p_(1,0,0)+p_(0,0,1)*p_(1,0,1)+p_(0,1,0)*p_(1,1,0)+p_(1,0,1)*p_(1,1,0)-p_(0,1,1)*p_(1,1,1)-p_(1,0,0)*p_(1,1,1),
-    p_(0,0,0)*p_(0,1,0)-p_(0,0,1)*p_(0,1,1)+p_(0,1,0)*p_(1,0,0)-p_(0,1,1)*p_(1,0,1)+p_(0,0,0)*p_(1,1,0)+p_(1,0,0)*p_(1,1,0)-p_(0,0,1)*p_(1,1,1)-p_(1,0,1)*p_(1,1,1),
-    p_(0,0,0)*p_(0,0,1)+p_(0,0,1)*p_(0,1,0)+p_(0,0,0)*p_(0,1,1)+p_(0,1,0)*p_(0,1,1)-p_(1,0,0)*p_(1,0,1)-p_(1,0,1)*p_(1,1,0)-p_(1,0,0)*p_(1,1,1)-p_(1,1,0)*p_(1,1,1)};
 
-
+--ideals corresponding to one inequality and together with the Zariski closure   
 originalIdeals={ideal(p_(0,1,0)*p_(1,0,0)-p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)+p_(0,0,1)*p_(1,1,1),p_(0,0,1)*p_(1,0,0)-p_(0,0,0)*p_(1,0,1)-p_(0,1,1)*p_(1,1,0)+p_(0,1,0)*p_(1,1,1),p_(0,0,1)*p_(0,1,0)-p_(0,0,0)*p_(0,1,1)-p_(1,0,1)*p_(1,1,0)+p_(1,0,0)*p_(1,1,1
       ),p_(0,1,0)*p_(1,0,0)+p_(0,1,1)*p_(1,0,0)+p_(0,1,0)*p_(1,0,1)+p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)-p_(0,0,1)*p_(1,1,0)-p_(0,0,0)*p_(1,1,1)-p_(0,0,1)*p_(1,1,1)),
       ideal(p_(0,1,0)*p_(1,0,0)-p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)+p_(0,0,1)*p_(1,1,1),p_(0,0,1)*p_(1,0,0)-p_(0,0,0)*p_(1,0,1)-p_(0,1,1)*p_(1,1,0)+p_(0,1,0)*p_(1,1,1),p_(0,0,1)*p_(0,1,0)-p_(0,0,0)*p_(0,1,1)-p_(1,0,1)*p_(1,1,0)+p_(1,0,0)*p_(1,1,1
@@ -198,21 +193,8 @@ idealsList3=removeRedundantComponents(idealsList2);
 --make likelihood ideal for each ideal
 for i to #idealsList3-1 do (
     likelihoodIdeal = makeLikelihoodIdeal(idealsList3#i);
-    file = concatenate("/Users/kubjask1/Dropbox/Dimitra/programs/PHcpack/ideal_",toString i);
+    file = concatenate("ideal_",toString i);
     	file << toString likelihoodIdeal << endl << toString ring likelihoodIdeal << close;
     	);
     )
 
-
----------------------------
---code to print the likelihood ideal for a single ideal
-I=idealsList#15;
-dim I
-likelihoodIdeal = makeLikelihoodIdeal(I);
-file = concatenate("/Users/kubjask1/Dropbox/Dimitra/programs/likelihoodIdealM2");
-file << toString likelihoodIdeal << endl << toString ring likelihoodIdeal << close;
-
-loadPackage("PHCpack")
-
-S=CC[flatten entries vars ring likelihoodIdeal]
-solns=solveSystem(flatten entries gens sub(likelihoodIdeal,S))
