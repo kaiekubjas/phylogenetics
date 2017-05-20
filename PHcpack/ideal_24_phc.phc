@@ -1,0 +1,246 @@
+12
+p011-p100;
+p010-p101;
+p001-p110;
+p000-p111;
+p000*l4-397*p000+100;
+p001*l3-397*p001+11;
+p010*l2-397*p010+85;
+p011*l1-397*p011+55;
+-p100*l1-397*p100+56;
+-p101*l2-397*p101+7;
+-p110*l3-397*p110+75;
+-p111*l4-397*p111+8;
+
+ROOT COUNTS :
+
+total degree : 256
+5-homogeneous Bezout number : 16
+  with partition : { p011 p100 }{ p010 p101 l1 }{ p001 p110 l2 }{ p000 p111 l3 }{ l4 }
+general linear-product Bezout number : 16
+  based on the set structure :
+     { p011 p100 }
+     { p010 p101 }
+     { p001 p110 }
+     { p000 p111 }
+     { p000 }{ l4 }
+     { p001 }{ l3 }
+     { p010 }{ l2 }
+     { p011 }{ l1 }
+     { p100 }{ l1 }
+     { p101 }{ l2 }
+     { p110 }{ l3 }
+     { p111 }{ l4 }
+mixed volume : 1
+stable mixed volume : 1
+
+TIMING INFORMATION for Root Counting
+The elapsed time in seconds was                  0.017508000 =  0h 0m 0s 18ms
+User time in seconds was                         0.016102000 =  0h 0m 0s 16ms
+System CPU time in seconds was                   0.001406000 =  0h 0m 0s  1ms
+Non-I/O page faults was                                 449
+I/O page faults was                                       0
+Signals delivered was                                     0
+Swaps was                                                 0
+Total context switches was                               43
+
+RANDOM COEFFICIENT START SYSTEM :
+
+12
+
++( 7.83703815985022E-01 + 6.21134710679184E-01*i)*p011
++(-2.96696214119524E-01 - 9.54971913999119E-01*i)*p100;
+
++(-9.93210535427391E-01 + 1.16330702379192E-01*i)*p010
++(-7.33868954202935E-01 - 6.79291070202672E-01*i)*p101;
+
++( 7.37904545948729E-01 + 6.74905090415090E-01*i)*p001
++(-4.53405968669325E-01 - 8.91304116211202E-01*i)*p110;
+
++(-9.91752342814857E-01 + 1.28168992042702E-01*i)*p000
++(-2.30994162587071E-01 - 9.72955136093488E-01*i)*p111;
+
++(-1.34430355710234E-01 - 9.90923044168224E-01*i)*p000*l4
++(-9.10161036899495E-01 - 4.14254616039504E-01*i)*p000
++( 9.91732692533305E-01 + 1.28320951370541E-01*i);
+
++(-7.90378911483563E-01 - 6.12618295745448E-01*i)*p001*l3
++( 3.27113903963339E-01 + 9.44984917252050E-01*i)*p001
++(-5.34002671376499E-01 + 8.45482789276496E-01*i);
+
++(-4.77615748900933E-02 + 9.98858764773087E-01*i)*p010*l2
++(-9.36818979331354E-01 - 3.49814522232225E-01*i);
+
++(-9.37541667885538E-01 + 3.47872995471628E-01*i)*p011*l1
++( 8.16023411131989E-01 + 5.78018851322787E-01*i);
+
++(-9.54517400968054E-01 - 2.98155213352361E-01*i)*p100*l1
++(-6.19082913942741E-01 + 7.85325630336974E-01*i)*p100
++(-9.62304925717334E-01 + 2.71972847799477E-01*i);
+
++( 7.43616085489879E-01 - 6.68606848155707E-01*i)*p101*l2
++(-2.24515026589201E-01 - 9.74470626974282E-01*i)*p101
++(-9.85097050710482E-01 - 1.71999420584811E-01*i);
+
++( 9.10157218325231E-01 + 4.14263005746926E-01*i)*p110*l3
++(-9.60054304682811E-01 - 2.79813745302130E-01*i);
+
++( 7.83315373993158E-01 + 6.21624504718048E-01*i)*p111*l4
++(-7.03650557158501E-01 + 7.10546193720388E-01*i);
+
+START SOLUTIONS : 
+
+1 12
+===========================================================================
+solution 1 :
+t :  0.00000000000000E+00   0.00000000000000E+00
+m : 1
+the solution for t :
+ p011 :  2.33311504549109E-01  -1.76301940956321E+00
+ p100 : -8.01923979543477E-01  -1.58732152624625E+00
+ p010 : -2.78847955855145E-02  -1.08212873485873E-01
+ p101 :  1.00368576710751E-01   4.91297936284434E-02
+ p001 :  3.10782942673463E-01  -1.13565219650632E+00
+ p110 : -1.08470180312758E-01  -1.17240188027371E+00
+ p000 :  1.48429325994473E+00   5.54896647752567E-01
+ p111 : -7.06805065472527E-01   1.41826068500355E+00
+ l4 : -5.92233699510570E-01   2.17947524341378E-01
+ l3 :  4.35306329260972E-02   8.48206260075170E-01
+ l2 :  7.57331763661009E+00   4.76700922284595E+00
+ l1 : -4.18728179614762E-01   3.75306646456356E-01
+== err :  1.934E-14 = rco :  1.099E-04 = res :  3.331E-16 ==
+
+TIMING INFORMATION for Construction of Start System
+The elapsed time in seconds was                  0.002507000 =  0h 0m 0s  3ms
+User time in seconds was                         0.002320000 =  0h 0m 0s  2ms
+System CPU time in seconds was                   0.000187000 =  0h 0m 0s  0ms
+Non-I/O page faults was                                  76
+I/O page faults was                                       0
+Signals delivered was                                     0
+Swaps was                                                 0
+Total context switches was                                9
+
+HOMOTOPY PARAMETERS :
+      k :  2
+  gamma : -8.69618272209460E-01  -4.93724681011021E-01
+      t :  1.00000000000000E+00   0.00000000000000E+00
+  no projective transformation
+
+****************** CURRENT CONTINUATION PARAMETERS *****************
+GLOBAL MONITOR : 
+  1. the condition of the homotopy           : 0
+  2. number of paths tracked simultaneously  : 1
+  3. maximum number of steps along a path    : 500
+  4. distance from target to start end game  : 1.000E-01
+  5. order of extrapolator in end game       : 0
+  6. maximum number of re-runs               : 1
+STEP CONTROL (PREDICTOR) :                    along path : end game
+  7: 8. type ( x:Cub,t:Rea ):( x:Cub,t:Rea ) : 8         : 8
+  9:10. minimum step size                    : 1.000E-06 : 1.000E-08
+ 11:12. maximum step size                    : 1.000E-01 : 1.000E-02
+ 13:14. reduction factor for step size       : 7.000E-01 : 5.000E-01
+ 15:16. expansion factor for step size       : 1.250E+00 : 1.100E+00
+ 17:18. expansion threshold                  : 1         : 3
+PATH CLOSENESS (CORRECTOR) :                  along path : end game
+ 19:20. maximum number of iterations         : 3         : 3
+ 21:22. relative precision for residuals     : 1.000E-09 : 1.000E-11
+ 23:24. absolute precision for residuals     : 1.000E-09 : 1.000E-11
+ 25:26. relative precision for corrections   : 1.000E-09 : 1.000E-11
+ 27:28. absolute precision for corrections   : 1.000E-09 : 1.000E-11
+SOLUTION TOLERANCES :                         along path : end game
+ 29:30. inverse condition of Jacobian        : 1.000E-04 : 1.000E-12
+ 31:32. clustering of solutions              : 1.000E-04 : 1.000E-12
+ 33:34. solution at infinity                 : 1.000E+08 : 1.000E+12
+********************************************************************
+
+THE SOLUTIONS :
+1 12
+===========================================================================
+== 1 =  #step :  43 #fail : 11 #iter : 110 = regular solution ==
+t :  1.00000000000000E+00   0.00000000000000E+00
+m : 1                  Length of path :  4.33293293922778E+02
+the solution for t : 
+ p011 :  1.39798488664987E-01   2.92008179189863E-39
+ p100 :  1.39798488664987E-01   8.39433832069138E-41
+ p010 :  1.15869017632242E-01   2.90789751744587E-35
+ p101 :  1.15869017632242E-01   7.70371977754894E-34
+ p001 :  1.08312342569270E-01  -5.07492135318675E-36
+ p110 :  1.08312342569270E-01  -5.07492135318675E-36
+ p000 :  1.36020151133501E-01  -4.53887030710836E-33
+ p111 :  1.36020151133501E-01  -3.08148791101958E-33
+ l4 : -3.38185185185185E+02  -2.52435489670724E-29
+ l3 :  2.95441860465116E+02   0.00000000000000E+00
+ l2 : -3.36586956521739E+02   1.26217744835362E-29
+ l1 :  3.57657657657654E+00   0.00000000000000E+00
+== err :  2.053E-13 = rco :  1.993E-04 = res :  1.110E-16 ==
+== #regu : 1 = #sing : 0 = #clus : 0 = #infi : 0 = #fail : 0 == 
+
+TIMING INFORMATION for continuation
+The elapsed time in seconds was                  0.002475000 =  0h 0m 0s  2ms
+User time in seconds was                         0.002442000 =  0h 0m 0s  2ms
+System CPU time in seconds was                   0.000033000 =  0h 0m 0s  0ms
+Non-I/O page faults was                                  14
+I/O page faults was                                       0
+Signals delivered was                                     0
+Swaps was                                                 0
+Total context switches was                                3
+
+THE SOLUTIONS :
+
+1 12
+===========================================================================
+solution 1 :    start residual :  2.082E-16   #deflations : 1   success
+t :  1.00000000000000E+00   0.00000000000000E+00
+m : 1
+the solution for t :
+ p011 :  1.39798488664987E-01   3.41982453176317E-17
+ p100 :  1.39798488664987E-01   3.41982452530082E-17
+ p010 :  1.15869017469373E-01  -5.12509473201181E-13
+ p101 :  1.15869017469373E-01  -5.12509473201181E-13
+ p001 :  1.08312342569269E-01  -5.00772309746005E-17
+ p110 :  1.08312342569269E-01  -5.00772309487511E-17
+ p000 :  1.36020151133052E-01  -8.10389272850339E-15
+ p111 :  1.36020151133052E-01  -8.10389272819320E-15
+ l4 : -3.38185185187548E+02  -4.07656638395877E-11
+ l3 :  2.95441860465122E+02   2.71901190887612E-13
+ l2 : -3.36586957517991E+02  -2.94028729932083E-09
+ l1 :  3.57657657658624E+00  -5.80386527589976E-13
+== err :  8.741E-03 = rco :  1.993E-04 = res :  9.587E-10 = complex single ==
+===========================================================================
+A list of 1 solutions has been refined :
+Number of regular solutions     : 1.
+Number of singular solutions    : 0.
+Number of real solutions        : 0.
+Number of complex solutions     : 1.
+Number of clustered solutions   : 0.
+Number of solutions at infinity : 0.
+Number of failures              : 0.
+===========================================================================
+Frequency tables for correction, residual, and condition numbers :
+FreqCorr :  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 : 1
+FreqResi :  0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 : 1
+FreqCond :  0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 : 1
+Small correction terms and residuals counted to the right.
+Well conditioned and distinct roots counted to the left.
+
+TIMING INFORMATION for Solving the polynomial system
+The elapsed time in seconds was                  0.034425000 =  0h 0m 0s 34ms
+User time in seconds was                         0.032151000 =  0h 0m 0s 32ms
+System CPU time in seconds was                   0.002274000 =  0h 0m 0s  2ms
+Non-I/O page faults was                                 713
+I/O page faults was                                       0
+Signals delivered was                                     0
+Swaps was                                                 0
+Total context switches was                               74
+
+  ---------------------------------------------------------------------
+  |                    TIMING INFORMATION SUMMARY                     |
+  ---------------------------------------------------------------------
+  |   root counts  |  start system  |  continuation  |   total time   |
+  ---------------------------------------------------------------------
+  |  0h 0m 0s 16ms |  0h 0m 0s  2ms |  0h 0m 0s  2ms |  0h 0m 0s 32ms |
+  ---------------------------------------------------------------------
+PHC ran from 15 May 2017, 21:26:35 till 15 May 2017, 21:26:35.
+The total elapsed time is 0 seconds.
+Seed used in random number generators : 81267.
+PHCv2.4.29 released 2016-11-20
