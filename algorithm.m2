@@ -1,8 +1,6 @@
 restart
 
 --NB: this code gives correct results only for homogeneous ideals
---the difference with the other program is that we remove one likelihood variable
---since the second row can be multiplied by -U+ by Elizabeth's and Jose's paper
 
 loadPackage("Depth");
 
@@ -105,7 +103,7 @@ makeAugmentedJacobian=(originalI)->(
     originalI=sub(originalI,R2);
     -- first row consists of random positive integers
     -- firstRow:=matrix{for i to 7 list random(1,100)};
-    firstRow:=matrix{{100,11,85,55,56,7,75,8}};
+    firstRow:=matrix{{17,5,27,5,16,5,19,6}};
     -- construct the second to last row of the augmented Jacobian
     -- the second row will correspond to the row of variables
     secondRow:=matrix{for i to 7 list 1};
@@ -127,7 +125,6 @@ I=ideal(p_(0,1,0)*p_(1,0,0)-p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)+p_(0,0,1)*p_
     p_(0,0,1)*p_(1,0,0)-p_(0,0,0)*p_(1,0,1)-p_(0,1,1)*p_(1,1,0)+p_(0,1,0)*p_(1,1,1),
     p_(0,0,1)*p_(0,1,0)-p_(0,0,0)*p_(0,1,1)-p_(1,0,1)*p_(1,1,0)+p_(1,0,0)*p_(1,1,1));
    
---these inequalities are from January 2, 2018 (the newest version appearing in the article)
 inequalities = {p_(0,1,0)*p_(1,0,0)+p_(0,1,1)*p_(1,0,0)+p_(0,1,0)*p_(1,0,1)+p_(0,1,1)*p_(1,0,1)-p_(0,0,0)*p_(1,1,0)-p_(0,0,1)*p_(1,1,0)-p_(0,0,0)*p_(1,1,1)-p_(0,0,1)*p_(1,1,1),
       -p_(0,0,1)*p_(0,1,0)+p_(0,0,0)*p_(0,1,1)+p_(0,0,0)*p_(1,0,0)-p_(0,0,1)*p_(1,0,1)-p_(0,1,0)*p_(1,1,0)-p_(1,0,1)*p_(1,1,0)+p_(0,1,1)*p_(1,1,1)+p_(1,0,0)*p_(1,1,1),
       p_(0,0,0)*p_(0,1,0)-p_(0,0,1)*p_(0,1,1)-p_(0,0,1)*p_(1,0,0)+p_(0,0,0)*p_(1,0,1)-p_(0,1,1)*p_(1,1,0)-p_(1,0,0)*p_(1,1,0)+p_(0,1,0)*p_(1,1,1)+p_(1,0,1)*p_(1,1,1),
@@ -205,24 +202,44 @@ idealsList2=unique(idealsList1);
 idealsList3=removeRedundantComponents(idealsList2);
 #idealsList3
 
---make likelihood ideal for each ideal
-for i to #idealsList3-1 do (
-    likelihoodIdeal = makeLikelihoodIdeal(idealsList3#i);
-    file = concatenate("/Users/kubjask1/Dropbox/Dimitra/programs/PHcpack/ideal_",toString i);
-    	file << toString likelihoodIdeal << endl << toString ring likelihoodIdeal << close;
-    	);
-    )
 
+--make likelihood ideals for each of the ideals in the list
+idealsList4 = idealsList3 / (i->makeLikelihoodIdeal(i));
 
 ---------------------------
---code to print the likelihood ideal for a single ideal
-I=idealsList3#11;
-dim I
-likelihoodIdeal = makeLikelihoodIdeal(I);
-file = concatenate("/Users/kubjask1/Dropbox/Dimitra/programs/likelihoodIdealM2");
-file << toString likelihoodIdeal << endl << toString ring likelihoodIdeal << close;
+--for each likelihood ideal, the solutions can be found by the following code
 
 loadPackage("PHCpack")
 
-S=CC[flatten entries vars ring likelihoodIdeal]
-solns=solveSystem(flatten entries gens sub(likelihoodIdeal,S))
+--translates p_(1,1,1) -> p_(1,1,1,1) (adds one index "1")
+addIndex = (string) -> (
+	addIndexString := replace(///p_\(([0-9]),([0-9]),([0-9])\)///,///p_(1,\1,\2,\3)///,string);
+	return addIndexString;
+	)
+	
+--translates p_(1,1,1,1) -> p_1111 
+formatIndex = (string) -> (
+	formatIndexString := replace(///p_\(([0-9]),([0-9]),([0-9]),([0-9])\)///,///p_(\1\2\3\4)///,string);
+	return formatIndexString;
+	)
+    
+--find the solutions for a likelihood ideal    
+solveFromLikelihoodIdeal = (likelihoodIdeal) -> (
+    R = CC[flatten entries vars ring likelihoodIdeal];
+    likelihoodIdeal = sub(likelihoodIdeal, R);
+    system = flatten entries gens likelihoodIdeal;
+    nRing = value(formatIndex(addIndex(toExternalString(R))));
+    nSystem =value(formatIndex(addIndex(toExternalString(system))));
+    R = nRing;
+    use R;
+    system = nSystem;
+    sols = solveSystem(system);
+    return sols;
+    )    
+    
+    
+--ideal whose solutions we want to find    
+sols = solveFromLikelihoodIdeal(idealsList4#0);
+
+
+
